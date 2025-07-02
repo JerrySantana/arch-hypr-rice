@@ -13,7 +13,7 @@
 
 ## 🌀 About This Repo
 
-Here are my config files from my <strong> Hyprland</strong> ***rice*** 🍚 on <strong>󰣇 Arch Linux</strong> (**obviously!** ¯\\\_(ツ)_/¯).
+Here are my config files from my <strong>✨ Hyprland</strong> ***rice*** 🍚 on <strong>🐧 Arch Linux</strong> (**obviously!** ¯\\\_(ツ)_/¯).
 
 This setup includes:
 
@@ -54,7 +54,7 @@ I'll be more than happy to **give proper attribution** or **remove the content**
 If you like this rice:
 
 <p align="center">
-  <big>    </big>
+  <big>🌟🌟🌟🌟🌟</big>
 </p>
 
 Leave a 🌟 on the repo!
