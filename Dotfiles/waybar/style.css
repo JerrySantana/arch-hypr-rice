@@ -1,0 +1,337 @@
+/*
+##################################################
+## Waybar configuration.                        ##
+## Made by: JerrySantana (on Github)            ##
+## See https://github.com/Alexays/Waybar/wiki   ##
+##################################################
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Hurmit Nerd Font";
+}
+
+window#waybar {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+/* Modules */
+.modules-left, .modules-center, .modules-right {
+    padding: 6px;
+    border-radius: 10px;
+    background: rgba(141, 141, 141, 0.6);
+}
+
+.modules-left {
+    margin:10px 0px 5px 10px;
+}
+/* Leftmost module, omit left margin */
+.modules-left > widget:first-child {
+    margin-left: 0;
+}
+
+.modules-center {
+    margin:10px 0px 5px 0px;
+}
+
+.modules-right {
+    margin: 10px 10px 5px 30px;
+}
+/* Rightmost module, omit right margin */
+.modules-right > widget:last-child {
+    margin-right: 0;
+}
+
+
+/* Workspaces module */
+#workspaces button {
+    all: unset;
+    color: #727272;
+}
+#workspaces button:hover {
+    color: rgb(224, 224, 224);
+    text-shadow: 2px 2px 2px black;
+}
+#workspaces button.active {
+    color: #ffffff;
+    text-shadow: 0 0 2px whitesmoke;
+}
+#workspaces button.active:hover {
+    color: #ffffff;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+/* Window module */
+#window {
+    all: unset;
+    margin: 0px 8px;
+    color: #ffffff;
+    padding: 0px 2px;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 0 2px #000000;
+}
+
+
+/* Custom open group modules */
+#custom-expandl {
+    all: unset;
+    margin: 0px;
+    color: #aaaaaa;
+    font-weight: bold;
+    padding: 0px 0px 0px 8px;
+    transition: all 0.2s ease-in-out;
+}
+#custom-expandl:hover {
+    color: #ffffff;
+    text-shadow: 2px 2px 2px black;
+}
+
+#custom-expandr {
+    all: unset;
+    margin: 0px;
+    color: #aaaaaa;
+    padding: 0px 0px 0px 8px;
+    transition: all 0.2s ease-in-out;
+}
+#custom-expandr:hover {
+    color: #ffffff;
+    text-shadow: 2px 2px 2px black;
+}
+#custom-separator {
+    all: unset;
+    margin: 0px;
+    color: #aaaaaa;
+    font-weight: bold;
+    padding: 0px 8px 0px 8px;
+    transition: all 0.2s ease-in-out;
+}
+#custom-separator:hover {
+    color: #ffffff;
+    text-shadow: 2px 2px 2px black;
+}
+
+/* Group expand */
+#cpu {
+    all: unset;
+    margin: 0px 10px;
+    color: rgba(255, 137, 3, 0.7);
+    padding: 0px 4px;
+    transition: all 0.2s ease-in-out;
+}
+#cpu:hover {
+    text-shadow: 0 0 2px rgb(255, 137, 3);
+}
+
+#temperature {
+    all: unset;
+    margin: 0px;
+    color: #aaaaaa;
+    font-weight: bold;
+    padding: 0px 10px 0px 8px;
+    transition: all 0.2s ease-in-out;
+}
+#temperature.critical {
+    color: rgb(255, 21, 21);
+}
+#temperature:hover {
+    color: #ffffff;
+    text-shadow: 0 0 3px #ffffff;
+}
+#temperature.critical:hover {
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 3px rgb(255, 74, 74);
+}
+#custom-gpu {
+    all: unset;
+    margin: 0px;
+    color: #aaaaaa;
+    font-weight: bold;
+    padding: 2px 0px 0px 0px;
+    transition: all 0.2s ease-in-out;
+}
+#custom-gpu:hover {
+    color: #ffffff;
+    text-shadow: 0 0 3px #ffffff;
+}
+
+#backlight {
+    all: unset;
+    margin: 0px 10px;
+    color: rgba(255, 238, 0, 0.7);
+    padding: 0px 4px;
+    transition: all 0.2s ease-in-out;
+}
+#backlight:hover {
+    text-shadow: 0 0 2px rgb(247, 237, 96);
+}
+
+
+/* Right modules */
+#workspaces,#pulseaudio,
+#network, #battery, #clock {
+    all: unset;
+    margin: 0px 8px;
+    color: #aaaaaa;
+    padding: 0px 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+#pulseaudio {
+    color: rgba(255, 75, 75, 0.7);
+}
+#pulseaudio:hover {
+    text-shadow: 0 0 2px rgb(255, 153, 0);
+}
+
+#bluetooth {
+    all: unset;
+    margin: 0px 2px;
+    padding: 0px 4px 0px 10px;
+}
+#bluetooth.connected {
+    color: rgb(53, 117, 255);
+}
+#bluetooth.connected:hover {
+    text-shadow: 0px 4px 4px rgb(0, 132, 255);
+}
+#bluetooth.on {
+    color: rgb(17, 201, 0);
+}
+#bluetooth.on:hover {
+    text-shadow: 0 0 2px rgb(91, 182, 82);
+}
+#bluetooth.disabled {
+    color: rgba(255, 95, 3, 0.808);
+}
+#bluetooth.disabled:hover {
+    text-shadow: 0 0 2px rgb(255, 95, 3);
+}
+
+#network.wifi, #network.ethernet {
+    color: rgba(0, 217, 255, 0.6);
+}
+#network.wifi:hover, #network.ethernet:hover {
+    text-shadow: 0 0 2px rgb(130, 235, 253);
+}
+#network.disconnected {
+    color: rgba(255, 0, 0, 0.993);
+}
+#network.disconnected:hover {
+    text-shadow: 0 0 2px rgb(255, 57, 57);
+}
+
+#battery.charging, #battery.plugged {
+    color: rgba(156, 223, 0, 0.6);
+}
+#battery.charging:hover, #battery.plugged:hover {
+    text-shadow: 0 0 2px rgb(136, 172, 54);
+}
+@keyframes warningBlink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+@keyframes chargingBlink {
+    to {
+        text-shadow: 0 0 2px rgb(255, 255, 255);
+        color: #fffb00;
+    }
+}
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: rgba(238, 77, 77, 0.5);
+    color: #ffffff;
+    animation-name: warningBlink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+#battery.warning:not(.charging) {
+    color: rgba(255, 238, 0, 0.7);
+    
+}
+#battery:not(.charging), #battery:not(.plugged), #battery:not(.warning), #battery:not(.critical) {
+    color: rgba(86, 255, 86, 0.7);
+}
+#battery.warning:not(.charging):hover {
+    text-shadow: 0 0 2px rgb(255, 238, 0);
+}
+#battery:not(.charging):hover, #battery:not(.plugged):hover, #battery:not(.warning):hover, #battery:not(.critical):hover {
+    text-shadow: 0 0 2px rgb(255, 255, 255);
+    animation-name: chargingBlink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#clock {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 2px rgb(0, 0, 0);
+}
+
+
+/* Group power*/
+#custom-pwricon {
+    all: unset;
+    margin: 0px 2px;
+    color: #aaaaaa;
+    padding: 0px 0px 0px 4px;
+    transition: all 0.2s ease-in-out;
+}
+#custom-pwricon:hover {
+    color: #ffffff;
+    text-shadow: 2px 2px 2px black;
+}
+
+#custom-power_off, #custom-restart, #custom-suspend,
+#custom-lock, #custom-logoff {
+    all: unset;
+    margin: 0px;
+    padding: 0px 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-power_off {
+    color: rgb(245, 79, 79);
+}
+#custom-power_off:hover {
+    text-shadow: 0 0 2px rgb(255, 149, 175);
+}
+
+#custom-restart {
+    color: greenyellow;
+}
+#custom-restart:hover {
+    text-shadow: 0 0 4px rgb(222, 255, 175);
+}
+
+#custom-suspend {
+    color: rgb(255, 252, 91);
+}
+#custom-suspend:hover {
+    text-shadow: 0 0 4px rgb(255, 254, 175);
+}
+
+#custom-lock {
+    color: rgb(194, 116, 0);
+}
+#custom-lock:hover {
+    text-shadow: 0 0 4px rgb(218, 162, 78);
+}
+
+#custom-logoff {
+    color: rgb(88, 124, 245);
+}
+#custom-logoff:hover {
+    text-shadow: 0 0 4px rgb(152, 172, 240);
+}

@@ -1,0 +1,63 @@
+/*
+##################################################
+## Walker Multi-Purpose Launcher configuration. ##
+## Made by: JerrySantana (on Github)            ##
+## See https://github.com/abenz1267/walker/wiki ##
+##################################################
+*/
+
+
+/* foreground rgba(180, 255, 255, 0.9); neon text */
+/* background rgba(10, 10, 10, 0.95); Main background dark */
+/* color1 rgba(255, 0, 255, 0.8);  Neon magenta accent color */
+
+/* Remove borders from the main container */
+#window,
+#box {
+  color: rgba(180, 255, 255, 0.9);
+  background: rgba(10, 10, 10, 0.95);
+  border: none;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.5),
+    0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+/* Dimmed screen */
+#window {
+  background: rgba(0, 0, 0, 0.8); /* Overlay dimmed */
+}
+
+/* Make the app list the same color as the main container */
+#aiList,
+#aiScroll,
+#list {
+  background: transparent;
+  border: none;
+  border-radius: 16;
+  padding: 0;
+}
+
+/* For each element */
+child {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  transition: rgba(10, 10, 10, 0.90) 0.2s ease;
+}
+
+child:selected,
+child:hover {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+/* Search bar appearence */
+#search {
+  background: rgba(10, 10, 10, 0.95);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: none;
+}

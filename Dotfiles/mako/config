@@ -1,0 +1,53 @@
+###############################################
+## Mako Notification Daemon configuration.   ##
+## Made by: JerrySantana (on Github)         ##
+## See https://github.com/emersion/mako/wiki ##
+###############################################
+
+# === General Appearence ===
+border-size=3
+border-radius=10
+on-touch=dismiss
+text-color=#c4b7d9
+border-color=#815f94
+on-button-middle=none
+on-button-left=dismiss
+background-color=#1b1f2dcc
+on-button-right=dismiss-all
+# on-notify=exec mpv /path/to/custom/notification/sound
+
+# === Font & layout ===
+icons=1
+markup=1
+margin=2
+actions=1
+history=1
+padding=15
+max-icon-size=24
+icon-location=right
+text-alignment=left
+default-timeout=5000
+font=MonaspiceNe Nerd Font 10
+
+# === Position ===
+width=400
+height=100
+layer=overlay
+anchor=top-right
+
+
+# === Urgency notifications ===
+[urgency=low]
+text-color=#9fb08b
+border-color=#7e8c61
+background-color=#2b2f36cc
+
+[urgency=normal]
+text-color=#c4b7d9
+border-color=#815f94
+background-color=#1b1f2dcc
+
+[urgency=high]
+text-color=#f2d8d0
+border-color=#a86464
+background-color=#3e1c23cc

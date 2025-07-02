@@ -1,0 +1,288 @@
+// -*- mode: jsonc -*-
+
+/*
+##################################################
+## Waybar configuration.                        ##
+## Made by: JerrySantana (on Github)            ##
+## See https://github.com/Alexays/Waybar/wiki   ##
+##################################################
+*/
+
+{   
+    "margin": 0,
+    "height": 50, // Waybar height (to be removed for auto height)
+    "layer": "bottom", /* Waybar at top layer, or bottom
+                          (allowing context menus show on top). */
+    "exclusive": true, /* Waybar reserved space, if true every 
+                          windows will show under waybar. If false,
+                          windows will show behind */
+    "passthrough": false, // If true, Waybar do not respond to mouse actions.
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "reload_style_on_change": true,
+    // Order of the modules
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "group/tray",
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "group/expand",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "battery",
+        "clock",
+        "group/power"
+    ],
+    // Modules configuration
+    // Custom modules and groups
+    "custom/expandl": {
+        "format": " ",
+        "tooltip": false
+    },
+    "custom/expandr": {
+        "format": " ",
+        "tooltip": false
+    },
+    "custom/pwricon": {
+        "format": "󰤃/󰤂 ",
+        "tooltip": false
+    },
+    "custom/separator": {
+        "format": "󱋲 ",
+        "tooltip": false
+    },
+    "group/expand": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-to-left": true,
+            "click-to-reveal": true
+        },
+        "modules": ["custom/expandl", "cpu", "temperature", "custom/gpu", "backlight", "custom/expandr"]
+    },
+    "group/power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-to-left": true,
+            "click-to-reveal": true
+        },
+        "modules": ["custom/pwricon", "custom/power_off", "custom/restart", "custom/suspend", "custom/lock", "custom/logoff", "custom/expandr"]
+    },
+    "group/tray": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-to-left": false,
+            "click-to-reveal": true
+        },
+        "modules": ["custom/separator", "tray", "custom/expandr"]
+    },
+    // Module hyprland/window
+    "hyprland/window": {
+        "icon": true,
+        "icon-size": 14,
+        "separate-outputs": true,
+        "format": "{class} - {title}",
+        "rewrite": {
+            ".*~.*": "kitty",
+            "soffice - (.*)": "$1",
+            "libreoffice-(.*)": "$1",
+            "LibreOffice": "LibreOffice",
+            ".*Mozilla Firefox": "Firefox",
+            ".*qView": "Image Viewer qView",
+            "(.*) - mpv": "Media Player - mpv",
+            "Waypaper": "Waypaper - Choose Wallpaper",
+            "Qt5 Configuration Tool": "Qt5 Configuration",
+            "Qt6 Configuration Tool": "Qt6 Configuration",
+            "Customize Look and Feel": "KDE Customization",
+            "(.*) - (.*) - Visual Studio Code": "Code - $2",
+            "^jetbrains-idea - (?!Welcome)(.*)": "Idea - $1",
+            "Desktop Preferences": "File Manager Preferences",
+            "jetbrains-idea - Welcome to IntelliJ IDEA": "Welcome to IntelliJ IDEA",
+            "hyprpolkitagent - Hyprland Polkit Agent": "HyprPolkitAgent - Admin Rights"
+        }
+    },
+    // Module hyprland/workspaces
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "warp-on-scroll": false,
+        "window-rewrite": {
+            "class<mpv>": "",
+            "class<Code>": "",
+            "class<kitty>": "",
+            "class<qt6ct>": "",
+            "class<qt5ct>": "",
+            "class<firefox>":"",
+            "class<thunar>": "",
+            "class<Spotify>": "",
+            "class<soffice>": "",
+            "class<waypaper>": "󰸉",
+            "class<pcmanfm-qt>": "",
+            "class<libreoffice>": "",
+            "class<Lxappearance>": "",
+            "class<pavucontrol-qt>": "",
+            "class<jetbrains-idea>": "",
+            "class<hyprpolkitagent>": "󰒃",
+            "class<blueman-manager>": "",
+            "class<libreoffice-base": "",
+            "class<org.gnome.Papers>": "",
+            "class<libreoffice-calc>": "",
+            "class<libreoffice-draw>": "",
+            "class<libreoffice-math>": "",
+            "class<jetbrains-toolbox>": "",
+            "class<libreoffice-writer>": "",
+            "class<libreoffice-impress>": "",
+            "class<.*> title<LibreOffice>": "",
+            "class<com.interversehq.qView>": "",
+            "class<firefox> title<.*Arch.*>": "󰣇",
+            "class<libreoffice-startcenter>": "",
+            "class<firefox> title<.*Gmail.*>": "󰊫",
+            "class<firefox> title<.*GitHub.*>": "",
+            "class<firefox> title<.*Outlook.*>": "󰴢",
+            "class<firefox> title<.*YouTube.*>": "󰗃",            
+            "class<firefox> title<.*OneDrive.*>": "󰏊",
+            "class<firefox> title<.*Google Drive.*>": "",
+            "class<firefox> title<(.*r/.*|.*Reddit.*)>": "",
+            "class<pcmanfm-qt> title<Desktop Preferences>": "󱝑",
+            "class<firefox> title<(.*Google.*|.*Buscar con Google.*)>": ""
+        },
+        "format": "<small>{name}</small>:{windows} "
+    },
+    // Group tray section
+    // Module tray
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    // Group expand section
+    // Module cpu
+    "cpu": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "{usage}%",
+        "on-click": "hyprctl dispatch exec '[float;center;size 1780 720] kitty btop'"
+    },
+    // Module temperature
+    "temperature": {
+        "interval": 60,
+        "tooltip": false,
+        "critical-threshold": 85,
+        "format-icons": {
+            "default":["", ""],
+            "crtical":""
+        },
+        "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+        "format": "{icon} <small>CPU: {temperatureC}C°</small>"
+    },
+    // Module custom GPU (basic info)
+    "custom/gpu": {
+        "interval": 60,
+        "tooltip": false,
+        "format": "<small>{}</small>",
+        "exec": "~/.config/waybar/gpu_temp.sh"
+    },
+    // Module backlight (brightness)
+    "backlight": {
+        "tooltip": true,
+        "format": "{icon}",
+        "tooltip-format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃝", "󰃠"]
+    },
+    // Modules right section
+    // Module pulseaudio
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "on-click": "pavucontrol-qt",
+        "format-bluetooth": "{icon} ",
+        "format-bluetooth-muted": "󰗿",
+        "format-icons": { "default": ["", "", ""] }
+    },
+    // Module bluetooth
+    "bluetooth": {
+        "tooltip": true,
+        "format-on": "󰂰",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+        "tooltip-format": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias} ",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} {device_battery_percentage}% ",
+        "on-click": "hyprctl dispatch exec '[float;center;size 1080 720] blueman-manager'"
+    },
+    // Module network
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰲝 ",
+        "format-disconnected": "󰌙 ",
+        "tooltip-format-wifi": "{essid}  ",
+        "tooltip-format-ethernet": "{netmask} 󰈀 ",
+        "on-click": "hyprctl dispatch exec '[float;center;size 800 600] kitty nmtui'"
+    },
+    // Module battery
+    "battery": {
+        "states": {
+            "good": 90,
+            "fine": 60,
+            "full": 100,
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": true,
+        "ineterval": 60,
+        "tooltip-format": "{capacity}% {timeTo}",
+        "format": "<small>{capacity}%</small> {icon}",
+        "format-full": "<small>{capacity}%</small> {icon}",
+        "format-plugged": "<small>{capacity}%</small> {icon} ",
+        "format-charging": "<small>{capacity}%</small> {icon} 󰂄",
+        "format-icons": {
+            "full":"󱟢",
+            "good":"󰂂",
+            "fine":"󰁿",
+            "warning":"󰁼",
+            "critical":"󱃍",
+            "charging": ["󰢜", "󰂇", "󰢝", "󰂋", "󰂅"]
+        }
+    },
+    // Module clock
+    "clock": {
+        "timezone": "America/Mexico_City",
+        "format": "{:%B %d, %R} ",
+        "tooltip-format": "{:%r  | %A %B %d, %Y} 󰃰"
+    },
+    // Group power section
+    // Module custom power off
+    "custom/power_off": {
+        "format" : " ⏻ ",
+		"tooltip": false,
+		"on-click": "exec clipse -clear & shutdown now"
+    },
+    // Module custom restart
+    "custom/restart": {
+        "format" : "  ",
+		"tooltip": false,
+		"on-click": "exec clipse -clear & reboot"
+    },
+    // Module custom suspend
+    "custom/suspend": {
+        "format" : " 󰒲 ",
+		"tooltip": false,
+		"on-click": "./.config/hypr/lock_and_suspend.sh"
+    },
+    // Module custom lock
+    "custom/lock": {
+        "format" : "  ",
+		"tooltip": false,
+		"on-click": "./.config/hypr/stopplaying_and_lock.sh"
+    },
+    // Module custom log off
+    "custom/logoff": {
+        "format" : " 󰍃 ",
+		"tooltip": false,
+		"on-click": "exec clipse -clear & hyprctl dispatch exit"
+    }
+}
