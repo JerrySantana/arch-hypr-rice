@@ -86,7 +86,7 @@ Want to see it in action? Check these out:
     <img src="./Resources/waypaper.gif" height="250"/>
   </p>
 
-- 📺 [Watch the full video on YouTube](https://your-link-here.com)
+- 📺 [Watch the full video on Reddit](https://www.reddit.com/r/hyprland/comments/1lpkz33/yapir_yet_another_poorly_implemented_rice/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 - 🖼️ Screenshots (from waybar)
 <p align="center">
     <img src="./Resources/waybar1.png"/>
